@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
+  console.log("first")
   
   return (
      <div
