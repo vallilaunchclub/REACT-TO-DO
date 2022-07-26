@@ -1,17 +1,14 @@
-
 import React from "react";
 import "./App.css";
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
-  
   return (
-     <div
-     className="todo"
-    style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+    <div
+      className="todo"
+      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
     >
       {todo.text}
       <div>
-        
         <button onClick={() => completeTodo(index)}>Complete</button>
         <button onClick={() => removeTodo(index)}>x</button>
       </div>
@@ -22,7 +19,7 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
 function TodoForm({ addTodo }) {
   const [value, setValue] = React.useState("");
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!value) return;
     addTodo(value);
@@ -35,7 +32,7 @@ function TodoForm({ addTodo }) {
         type="text"
         className="input"
         value={value}
-        onChange={e => setValue(e.target.value)}
+        onChange={(e) => setValue(e.target.value)}
       />
     </form>
   );
@@ -45,43 +42,42 @@ function App() {
   const [todos, setTodos] = React.useState([
     {
       text: "ORGANIZING OFFICE",
-      isCompleted: false
+      isCompleted: false,
     },
     {
       text: "DESIGNING INFRASTRUCTURE",
-      isCompleted: false
+      isCompleted: false,
     },
     {
       text: "ESTABLISHING ELECTRICAL CONNECTIONS",
-      isCompleted: false
+      isCompleted: false,
     },
     {
       text: "SETTING UP VENDOR MACHINE",
-      isCompleted: false
+      isCompleted: false,
     },
     {
       text: "ENABLING CARD ACCESS CONTROL",
-      isCompleted: false
-
+      isCompleted: false,
     },
     {
       text: "ISSUING LAPTOPS",
-      isCompleted: false
-    }
+      isCompleted: false,
+    },
   ]);
 
-  const addTodo = text => {
+  const addTodo = (text) => {
     const newTodos = [...todos, { text }];
     setTodos(newTodos);
   };
 
-  const completeTodo = index => {
+  const completeTodo = (index) => {
     const newTodos = [...todos];
     newTodos[index].isCompleted = true;
     setTodos(newTodos);
   };
 
-  const removeTodo = index => {
+  const removeTodo = (index) => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
     setTodos(newTodos);
